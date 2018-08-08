@@ -25,8 +25,9 @@ class main:
         parm['password'] = self.hash_password(password, token)
         try:
             result = self.s.post(self.url + '/login', data=parm, headers=self.headers)
+            result2 = self.s.get(self.url + '/cart/list?page=1',  headers=self.headers)
             # print(self.headers)
-            print(result.text)
+            print(result2.text)
         except Exception as e:
             print(e)
 
