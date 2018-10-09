@@ -1,0 +1,8 @@
+{
+	"interfaces": [
+		{
+			"name":"提交订单",
+			"addr":"action/place_order"
+		}
+	]
+}

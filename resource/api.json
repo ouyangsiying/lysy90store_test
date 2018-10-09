@@ -1,0 +1,91 @@
+{
+	"login": {
+		"url": "/login",
+		"method": "post",
+		"data": [
+			{
+				"name": "user_name",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "password",
+				"type": 4,
+				"must": 1
+			}
+		]
+	},
+	"home_page": {
+		"url": "/home",
+		"method": "get",
+		"data": []
+	},
+	"brand": {
+		"url": "/goods",
+		"method": "get",
+		"data": [
+			{
+				"name": "brand_id",
+				"type": 1,
+				"must": 1
+			}
+		]
+	},
+	"access_goods":{
+		"url":"/goods/47",
+		"method":"get",
+		"data":[]
+	},
+	"shopping_cart": {
+		"url": "/cart",
+		"method": "post",
+		"data": [
+			{
+				"name": "sku",
+				"type": 1,
+				"must": 1
+			}
+		]
+	},
+	"place_order": {
+		"url": "/order",
+		"method": "post",
+		"data": [
+			{
+				"name": "is_cart",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "is_custom",
+				"type": 1,
+				"must":1
+			},
+			{
+				"name": "receiving_id",
+				"type": 1,
+				"must": 1
+			},
+			{
+				"name": "shipping_id",
+				"type": 1,
+				"must":1
+			},
+			{
+				"name": "invoice_belong",
+				"type": 1,
+				"must":1
+			},
+			{
+				"name": "goods_list",
+				"type": 1,
+				"must":1
+			}
+		]
+	},
+	"access_receive":{
+		"url":"/user/receiving_info/list",
+		"method":"get",
+		"data":[]
+	}
+}
