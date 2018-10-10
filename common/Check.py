@@ -5,7 +5,7 @@ class Check:
         self.status = ""
 
 #比较字典的key
-    def compre_keys(self,expect_keys,actual_keys):
+    def compre_keys(self, expect_keys, actual_keys):
         if len(expect_keys) != len(actual_keys):
                 # print("----建不同")
                 return -1, "键不相同" + str(len(expect_keys)) + str(len(actual_keys))

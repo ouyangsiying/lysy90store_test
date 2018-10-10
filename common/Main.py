@@ -1,4 +1,3 @@
-import config
 import json
 from common.NetworkRequest import NetworkRequest
 from tool.Tool import Tool
@@ -7,6 +6,7 @@ from common.Check import Check
 
 
 # value_type:1:字符串，2：文件，3：需要token，4:需要加密
+# check:0:不比较期望，1：比较具体的值，2：只比较数据结构
 class Main:
     def __init__(self):
         self.net = NetworkRequest()
@@ -72,19 +72,30 @@ class Main:
         if method == "get":
             result = self.net.get(url, param)
             result_dict = json.loads(result.content)
+            Tool.log("请求参数"+ str(param),'test ')
+            Tool.log("实际结果"+ str(result_dict), 'test')
+            print("请求参数", param)
             print("实际结果", result_dict)
         if method == "post":
             result = self.net.post(url, param)
             result_dict = json.loads(result.content)
+            Tool.log("请求参数" + str(param), 'test')
+            Tool.log("实际结果" + str(result_dict), 'test')
             print("请求参数",param)
             print("实际结果", result_dict)
         if method == "delete":
             result = self.net.post(url, param)
             result_dict = json.loads(result.content)
+            Tool.log("请求参数" + str(param), 'test')
+            Tool.log("实际结果" + str(result_dict), 'test')
+            print("请求参数", param)
             print("实际结果", result_dict)
         if method == "put":
             result = self.net.post(url, param)
             result_dict = json.loads(result.content)
+            Tool.log("请求参数" + str(param), 'test')
+            Tool.log("实际结果" + str(result_dict), 'test')
+            print("请求参数", param)
             print("实际结果", result_dict)
         if check == 1:
             flag = self.check.comparison_result_value(expect_data, result_dict)

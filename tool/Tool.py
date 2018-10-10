@@ -15,6 +15,7 @@ class Tool:
                 return load_json_dict
         except Exception as e:
             print("读文件异常",e)
+            Tool.log(e,'debug.log')
             exit()
 
     # 读excel
@@ -25,6 +26,7 @@ class Tool:
             return excel_file
         except Exception as e:
             print("读文件异常", e)
+            Tool.log(e, 'debug.log')
             exit()
 
     # 将json字符串格式化
@@ -38,16 +40,17 @@ class Tool:
 
     # 加密密码
     @staticmethod
-    def hash_password(password,token):
+    def hash_password(password, token):
         hash_password1 = hashlib.sha1((password).encode('utf_8')).hexdigest()
         hash_password = hashlib.sha1((hash_password1+token).encode('utf_8')).hexdigest()
         return hash_password
 
+    # 写日志
     @staticmethod
     def log(msg,filename = 'log'):
         curr_time = datetime.datetime.now()
         curr_time = curr_time.strftime("[%Y-%m-%d %H:%M:%S] ")
-        open_text = open(config.rootPath+'/log/'+filename+'.log', mode='a+')
+        open_text = open(config.rootPath+'/log/'+filename+'.log', mode='a+',encoding='utf8')
         open_text.write(curr_time)
         open_text.write(msg)
         open_text.write('\n')
