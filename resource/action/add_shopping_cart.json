@@ -1,0 +1,70 @@
+{
+  "actions": [
+    {
+      "api": "login",
+      "data": "login"
+    },
+    {
+      "api": "shopping_cart",
+      "data": "shopping_cart"
+    }
+  ],
+  "data": {
+    "login": {
+      "check": 0,
+      "test_datas": [
+        {
+          "input": {
+            "user_name": "person111",
+            "password": "111111"
+          },
+          "output": {
+          }
+        }
+      ]
+    },
+    "shopping_cart": {
+      "check": 2,
+      "test_datas": [
+        {
+          "input": {
+            "sku": "[{\"sku\":\"QY-KEM-KMC160026-BH-S\",\"goods_count\":1}]"
+          },
+          "output": {
+            "errno": 0,
+            "result": {
+              "cart_count": 2
+            }
+          }
+        },
+        {
+          "input": {
+            "sku": "[{\"sku\":\"12121\",\"goods_count\":1}]"
+          },
+          "output": {
+            "errno": 0,
+            "result": {
+              "cart_count": 2
+            }
+          }
+        },
+        {
+          "input": {
+            "sku": "[{\"sku\":\"1_1\",\"goods_count\":1}]"
+          },
+          "output": {
+            "errno": 400,
+            "result": {
+              "errors": [
+                {
+                  "msg": "购买的商品库存不足",
+                  "code": 1
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

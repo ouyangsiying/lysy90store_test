@@ -12,28 +12,36 @@
   "data": {
     "login": {
       "check": 0,
-      "input": {
-        "user_name": "test_cs4",
-        "password": "111111"
-      },
-      "output": {}
+      "test_datas": [
+        {
+          "input": {
+            "user_name": "person111",
+            "password": "111111"
+          },
+          "output": {}
+        }
+      ]
     },
     "place_order": {
       "check": 2,
-      "input": {
-        "is_cart":0,
-        "is_custom":0,
-        "receiving_id":16,
-        "shipping_id":0,
-        "invoice_belong":1,
-        "goods_list":"[{'sku':'QY-SK-C17S201AAZ1-THIN-B-S','goods_count':1}]"
-      },
-      "output": {
-        "errno": 0,
-        "result":{
-          "order_id":1693
+      "test_datas": [
+        {
+          "input": {
+            "is_cart": 0,
+            "is_custom": 0,
+            "receiving_id": 16,
+            "shipping_id": 0,
+            "invoice_belong": 1,
+            "goods_list": "[{'sku':'QY-SK-C17S201AAZ1-THIN-B-S','goods_count':1}]"
+          },
+          "output": {
+            "errno": 0,
+            "result": {
+              "order_id": 1693
+            }
+          }
         }
-      }
+      ]
     }
   }
 }

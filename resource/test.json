@@ -1,9 +1,9 @@
 {
 	"interfaces": [
-//		{
-//			"name":"提交订单",
-//			"addr":"action/place_order"
-//		},
+		{
+			"name":"提交订单",
+			"addr":"action/place_order"
+		},
 		{
 			"name":"添加购物车",
 			"addr":"action/add_shopping_cart"

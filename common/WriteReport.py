@@ -30,6 +30,10 @@ class WriteReport:
         write_sheet.write(n, 2, params)
         write_sheet.write(n, 3, expect, style)
         write_sheet.write(n, 4, actual, style)
+        Tool.log('URL:' + str(url), 'test')
+        Tool.log('接口名字：' + str(interface_name), 'test')
+        Tool.log('期望结果：'+str(expect),'test')
+        Tool.log('实际结果：' + str(actual), 'test')
 
         if flag == 1:
             write_sheet.write(n, 5, u"测试通过")
