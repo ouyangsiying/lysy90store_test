@@ -1,14 +1,32 @@
 {
-  "actions": [
+  "actions":
+  [
+//    {
+//     "action":[
+//        {
+//        "api": "login",
+//        "data": "login"
+//        },
+//        {
+//        "api": "shopping_cart",
+//        "data": "shopping_cart"
+//        }
+//     ]
+//    },
     {
-      "api": "login",
-      "data": "login"
-    },
-    {
-      "api": "shopping_cart",
-      "data": "shopping_cart"
+      "action": [
+        {
+          "api": "login",
+          "data": "login"
+        },
+        {
+          "api": "shopping_cart",
+          "data": "shopping_cart"
+        }
+      ]
     }
-  ],
+  ]
+,
   "data": {
     "login": {
       "check": 0,
@@ -26,9 +44,10 @@
     "shopping_cart": {
       "check": 2,
       "test_datas": [
+        //购物车没有该数据：K15Z209-1
         {
           "input": {
-            "sku": "[{\"sku\":\"QY-KEM-KMC160026-BH-S\",\"goods_count\":1}]"
+            "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-L\",\"goods_count\":1}]"
           },
           "output": {
             "errno": 0,
@@ -37,20 +56,27 @@
             }
           }
         },
+        //该商品的库存为0
         {
           "input": {
-            "sku": "[{\"sku\":\"12121\",\"goods_count\":1}]"
+            "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-M\",\"goods_count\":1}]"
           },
           "output": {
             "errno": 0,
             "result": {
-              "cart_count": 2
+              "errors": [
+                {
+                  "msg": "购买的商品库存不足",
+                  "code": 1
+                }
+              ]
             }
           }
         },
+        //购物车有一件该商品，且该商品的库存为1
         {
           "input": {
-            "sku": "[{\"sku\":\"1_1\",\"goods_count\":1}]"
+            "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-S\",\"goods_count\":1}]"
           },
           "output": {
             "errno": 400,
@@ -64,6 +90,40 @@
             }
           }
         }
+        //没有提交sku
+//        {
+//          "input": {
+//            "sku": "[{\"goods_count\":1}]"
+//          },
+//          "output": {
+//            "errno": 400,
+//            "result": {
+//              "errors": [
+//                {
+//                  "msg": "购买的商品库存不足",
+//                  "code": 1
+//                }
+//              ]
+//            }
+//          }
+//        },
+        //没有提交件数
+//        {
+//          "input": {
+//            "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-XL\"}]"
+//          },
+//          "output": {
+//            "errno": 400,
+//            "result": {
+//              "errors": [
+//                {
+//                  "msg": "购买的商品库存不足",
+//                  "code": 1
+//                }
+//              ]
+//            }
+//          }
+//        }
       ]
     }
   }

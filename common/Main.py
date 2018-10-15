@@ -19,28 +19,28 @@ class Main:
     def run(self):
 
         for interface in self.interface['interfaces']:
-            self.net = NetworkRequest()
-            self.token = self.net.request_token()
-
             action_file = Tool.read_json(interface['addr'])
             interface_name = interface['name']
 
             actions = action_file['actions']  # 获取所有动作
             alldata = action_file['data']  # 获取所有测试数据
 
-            for action in actions:
+            for action_list in actions:
+                self.net = NetworkRequest()
+                self.token = self.net.request_token()
 
-                interface = action["api"]  # 需要的接口
-                dataname = action["data"]  # 需要的数据名字
+                for action in action_list["action"]:
+                    interface = action["api"]  # 需要的接口
+                    dataname = action["data"]  # 需要的数据名字
 
-                url, method, param_type_datas = self.get_one_api(self.api, interface)
-                # check, param, expect = self.get_one_data(dataname, alldata)
-                check,test_datas = self.get_test_datas(dataname,alldata)
-                for test_data in test_datas:
-                    param = test_data["input"]
-                    expect = test_data["output"]
-                    param = self.data_processing(self.token, param_type_datas, param)
-                    self.request_method(url,interface_name, method, check, param, expect)
+                    url, method, param_type_datas = self.get_one_api(self.api, interface)
+                    # check, param, expect = self.get_one_data(dataname, alldata)
+                    check,test_datas = self.get_test_datas(dataname,alldata)
+                    for test_data in test_datas:
+                        param = test_data["input"]
+                        expect = test_data["output"]
+                        param = self.data_processing(self.token, param_type_datas, param)
+                        self.request_method(url,interface_name, method, check, param, expect)
 
 
     # 获取一个接口信息
