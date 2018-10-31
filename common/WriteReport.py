@@ -8,7 +8,7 @@ class WriteReport:
     def __init__(self):
         pass
 
-    def write_report(self,url, interface_name,params, expect, actual, flag):
+    def write_report(self,url, interface_name,interface_description,params, expect, actual, flag):
         open_file = Tool.read_excel("report")
         table = open_file.sheets()[0]
         n = table.nrows
@@ -27,20 +27,21 @@ class WriteReport:
 
         write_sheet.write(n, 0, url)
         write_sheet.write(n, 1, interface_name)
-        write_sheet.write(n, 2, params)
-        write_sheet.write(n, 3, expect, style)
-        write_sheet.write(n, 4, actual, style)
+        write_sheet.write(n, 2, interface_description)
+        write_sheet.write(n, 3, params)
+        write_sheet.write(n, 4, expect, style)
+        write_sheet.write(n, 5, actual, style)
         Tool.log('URL:' + str(url), 'test')
         Tool.log('接口名字：' + str(interface_name), 'test')
         Tool.log('期望结果：'+str(expect),'test')
         Tool.log('实际结果：' + str(actual), 'test')
 
         if flag == 1:
-            write_sheet.write(n, 5, u"测试通过")
+            write_sheet.write(n, 6, u"测试通过")
             Tool.log("测试通过",'test')
             print("测试通过")
         else:
-            write_sheet.write(n, 5, u"测试失败")
+            write_sheet.write(n, 6, u"测试失败")
             Tool.log("测试失败", 'test')
             print("测试失败")
         wb.save(r"../test_report/report.xls")

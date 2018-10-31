@@ -25,13 +25,13 @@
         }
       ]
     }
-  ]
-,
+  ],
   "data": {
     "login": {
       "check": 0,
       "test_datas": [
         {
+          "Interface_description":"登录的测试数据",
           "input": {
             "user_name": "person111",
             "password": "111111"
@@ -44,8 +44,8 @@
     "shopping_cart": {
       "check": 2,
       "test_datas": [
-        //购物车没有该数据：K15Z209-1
         {
+          "Interface_description":"购物车没有该商品且库存不为1",
           "input": {
             "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-L\",\"goods_count\":1}]"
           },
@@ -56,8 +56,8 @@
             }
           }
         },
-        //该商品的库存为0
         {
+          "Interface_description":"该商品的库存为0",
           "input": {
             "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-M\",\"goods_count\":1}]"
           },
@@ -73,8 +73,8 @@
             }
           }
         },
-        //购物车有一件该商品，且该商品的库存为1
         {
+          "Interface_description":"购物车有一件该商品，且该商品的库存为1",
           "input": {
             "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-S\",\"goods_count\":1}]"
           },
@@ -89,41 +89,40 @@
               ]
             }
           }
-        }
-        //没有提交sku
-//        {
-//          "input": {
-//            "sku": "[{\"goods_count\":1}]"
-//          },
-//          "output": {
-//            "errno": 400,
-//            "result": {
-//              "errors": [
-//                {
-//                  "msg": "购买的商品库存不足",
-//                  "code": 1
-//                }
-//              ]
-//            }
-//          }
-//        },
-        //没有提交件数
-//        {
-//          "input": {
-//            "sku": "[{\"sku\":\"QY-KEM-K15Z209-1-BH-XL\"}]"
-//          },
-//          "output": {
-//            "errno": 400,
-//            "result": {
-//              "errors": [
-//                {
-//                  "msg": "购买的商品库存不足",
-//                  "code": 1
-//                }
-//              ]
-//            }
-//          }
-//        }
+        },
+        {
+         "Interface_description":"添加的商品已经下架",
+          "input": {
+            "sku": "[{\"sku\":\"QY-KEM-K15Z201D-HB-S\",\"goods_count\":1}]"
+          },
+          "output": {
+            "errno": 400,
+            "result": {
+              "errors": [
+                {
+                  "msg": "添加的商品不存在或已经下架",
+                  "code": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "Interface_description":"不提交任何参数",
+          "input": {
+          },
+          "output": {
+            "errno": 400,
+            "result": {
+              "errors": [
+                  {
+                    "msg": "缺少必须的参数",
+                    "code": 1
+                  }
+                ]
+              }
+            }
+          }
       ]
     }
   }

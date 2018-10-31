@@ -37,10 +37,13 @@ class Main:
                     # check, param, expect = self.get_one_data(dataname, alldata)
                     check,test_datas = self.get_test_datas(dataname,alldata)
                     for test_data in test_datas:
+                        print(test_data)
+                        interface_description=test_data["Interface_description"]
+                        print(interface_description)
                         param = test_data["input"]
                         expect = test_data["output"]
                         param = self.data_processing(self.token, param_type_datas, param)
-                        self.request_method(url,interface_name, method, check, param, expect)
+                        self.request_method(url,interface_name,interface_description, method, check, param, expect)
 
 
     # 获取一个接口信息
@@ -73,7 +76,7 @@ class Main:
                 input_param[name] = Tool.hash_password(input_param[name], token)
         return input_param
 
-    def request_method(self, url,interface_name, method, check, param, expect_data):
+    def request_method(self, url,interface_name, interface_description,method, check, param, expect_data):
         print ('-------------------'+url)
         result_dict = {}
         if method == "get":
@@ -99,10 +102,10 @@ class Main:
             print("实际结果", result_dict)
         if check == 1:
             flag = self.check.comparison_result_value(expect_data, result_dict)
-            self.write.write_report(url, interface_name,param, expect_data, result_dict, flag)
+            self.write.write_report(url, interface_name,interface_description,param, expect_data, result_dict, flag)
         elif check ==2:
             flag = self.check.comparison_result(expect_data, result_dict)
-            self.write.write_report(url, interface_name, param, expect_data, result_dict, flag)
+            self.write.write_report(url, interface_name,interface_description, param, expect_data, result_dict, flag)
         else:
             pass
 
