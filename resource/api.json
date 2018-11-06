@@ -1,5 +1,6 @@
 {
 	"login": {
+		"interface_name":"登录",
 		"url": "/login",
 		"method": "post",
 		"data": [
@@ -16,11 +17,13 @@
 		]
 	},
 	"home_page": {
+		"interface_name":"xxx",
 		"url": "/home",
 		"method": "get",
 		"data": []
 	},
 	"brand": {
+		"interface_name":"xxx",
 		"url": "/goods",
 		"method": "get",
 		"data": [
@@ -32,11 +35,13 @@
 		]
 	},
 	"access_goods":{
+		"interface_name":"xxxx",
 		"url":"/goods/47",
 		"method":"get",
 		"data":[]
 	},
 	"shopping_cart": {
+		"interface_name":"加入购物车",
 		"url": "/cart",
 		"method": "post",
 		"data": [
@@ -48,6 +53,7 @@
 		]
 	},
 	"place_order": {
+		"interface_name":"提交订单",
 		"url": "/order",
 		"method": "post",
 		"data": [
@@ -84,8 +90,21 @@
 		]
 	},
 	"access_receive":{
+		"interface_name":"xxx",
 		"url":"/user/receiving_info/list",
 		"method":"get",
 		"data":[]
+	},
+	"delete_shopping":{
+		"interface_name":"删除购物车",
+		"url":"/cart",
+		"method":"delete",
+		"data":[
+			{
+				"name": "sku_list",
+				"type": 1,
+				"must":1
+			}
+		]
 	}
 }

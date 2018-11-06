@@ -47,6 +47,22 @@ class NetworkRequest:
             post_headers = headers
         self.response = self.req.get(self.baseUrl + url, data=data, headers=post_headers)
         return self.response
+
+    def put(self, url, data=None, headers=None, cookies=None):
+        if headers is None:
+            post_headers = self.headers
+        else:
+            post_headers = headers
+        self.response = self.req.put(self.baseUrl + url, data=data, headers=post_headers)
+        return self.response
+
+    def delete(self, url, data=None, headers=None, cookies=None):
+        if headers is None:
+            post_headers = self.headers
+        else:
+            post_headers = headers
+        self.response = self.req.delete(self.baseUrl + url, data=data, headers=post_headers)
+        return self.response
     # ****************************************************
 
     def request_token(self):

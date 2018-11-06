@@ -91,12 +91,12 @@ class Main:
             print("请求参数",param)
             print("实际结果", result_dict)
         if method == "delete":
-            result = self.net.post(url, param)
+            result = self.net.delete(url, param)
             result_dict = json.loads(result.content)
             print("请求参数", param)
             print("实际结果", result_dict)
         if method == "put":
-            result = self.net.post(url, param)
+            result = self.net.put(url, param)
             result_dict = json.loads(result.content)
             print("请求参数", param)
             print("实际结果", result_dict)

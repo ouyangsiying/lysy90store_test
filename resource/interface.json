@@ -1,12 +1,16 @@
 {
 	"interfaces": [
 //		{
-//			"name":"提交订单",
-//			"addr":"action/place_order"
+//			"name":"添加购物车",
+//			"addr":"action/add_shopping_cart"
 //		},
+//		{
+//			"name":"删除购物车商品",
+//			"addr":"action/delete_shopping"
+//		}
 		{
-			"name":"添加购物车",
-			"addr":"action/add_shopping_cart"
+			"name":"提交订单",
+			"addr":"action/place_order"
 		}
 	]
 }
